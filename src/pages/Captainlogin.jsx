@@ -4,25 +4,17 @@ import { Link } from 'react-router-dom'
 const Captainlogin = () => {
     const [email, setEmail] = useState('')
     const [password, setpassword] = useState('')
-    const [userData, setuserData] = useState({})
+    const [captainData, setcaptainData] = useState('')
   
   
   
-    const submitHandler = (e) =>{
+   const submitHandler = (e) =>{
       e.preventDefault()
-      
-      // Create the user data object
-      const newUserData = {
-        email: email,
+      // console.log(email, password);
+    setcaptainData({
+        email:email,
         password: password
-      }
-      
-      // Log the data directly (not from state)
-      console.log("Captain Login Data:", newUserData);
-      
-      // Update state
-      setuserData(newUserData);
-      
+    })
       // Clear form
       setEmail('')
       setpassword('')
@@ -31,7 +23,7 @@ const Captainlogin = () => {
     <div>
        <div className='p-7 flex flex-col h-screen justify-between'>
              <div>
-              <img className='w-16 mb-10' src="src/assets/uberlogo.png" alt="" />
+              <img className='w-20 mb-2' src="https://www.svgrepo.com/show/505031/uber-driver.svg" alt="" />
       
             <form onSubmit={(e) =>{
               submitHandler(e)
@@ -67,12 +59,12 @@ const Captainlogin = () => {
                className='bg-[#111] text-white font-semibold mb-3 rounded px-4 py-2  w-full text-lg placeholder: text-base'
               >Login</button>
             </form>
-              <p className='text-center '> New here? <Link to ="/signup" className='text-blue-600'>Create new Account</Link></p>
+              <p className='text-center '>Join a fleet? <Link to ="/captain-signup" className='text-blue-600'>Register as a Captain</Link></p>
              </div>
              <div>
               <Link
-              to='/user-login'
-               className='bg-[#10b461] flex items-center justify-center  text-white font-semibold mb-5 rounded px-4 py-2  w-full text-lg placeholder: text-base'
+              to='/login'
+               className='bg-[#f3c164] flex items-center justify-center  text-white font-semibold mb-5 rounded px-4 py-2  w-full text-lg placeholder: text-base'
                >Sign in as User</Link>
              </div>
           </div>
